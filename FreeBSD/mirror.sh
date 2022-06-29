@@ -17,6 +17,7 @@ rsync \
     --delay-updates \
     --timeout=600 \
     --recursive \
+    --safe-links \
     --exclude="README.TXT" \
     --exclude="TIMESTAMP" \
     --exclude="CI-IMAGES" \

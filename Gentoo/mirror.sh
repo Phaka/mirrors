@@ -14,6 +14,7 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
+    --safe-links \
     --include="20220626*" \
     --include="20220627*" \
     --exclude="202206*" \

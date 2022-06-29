@@ -15,6 +15,7 @@ rsync \
     --timeout=600 \
     --recursive \
     --cvs-exclude \
+    --safe-links \
     --exclude="ftplist" \
     --exclude="timestamp" \
     --exclude="Changelogs" \

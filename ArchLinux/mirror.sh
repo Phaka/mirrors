@@ -14,6 +14,7 @@ rsync \
     --delay-updates \
     --timeout=600 \
     --recursive \
+    --safe-links \
     --include="*/" \
     --include="*.iso" \
     --include="*.iso.sig" \

@@ -16,6 +16,7 @@ rsync \
     --delay-updates \
     --timeout=600 \
     --recursive \
+    --safe-links \
     --exclude="power9" \
     --exclude="aarch64" \
     --exclude="ppc64" \

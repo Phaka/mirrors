@@ -57,6 +57,7 @@ rsync \
     --timeout=600 \
     --recursive \
     --cvs-exclude \
+    --safe-links \
     --exclude="repo" \
     --exclude="appliances" \
     --exclude="iso-devel" \

@@ -17,6 +17,7 @@ rsync \
     --timeout=600 \
     --cvs-exclude \
     --recursive \
+    --safe-links \
     --prune-empty-dirs \
     --exclude-from="$SCRIPT_DIR/exclude.txt" \
     --include-from="$SCRIPT_DIR/include.txt" \

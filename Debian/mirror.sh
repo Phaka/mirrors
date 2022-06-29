@@ -110,6 +110,7 @@ rsync \
     --delay-updates \
     --timeout=600 \
     --recursive \
+    --safe-links \
     --exclude="*-live" \
     --exclude="HEADER.html" \
     --exclude="current*" \
