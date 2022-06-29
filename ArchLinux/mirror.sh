@@ -8,7 +8,6 @@ rsync \
     --archive \
     --update \
     --compress \
-    --hard-links \
     --bwlimit=20m \
     --delete \
     --delete-after \
