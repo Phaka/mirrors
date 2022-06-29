@@ -2,7 +2,6 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 dest="/volume1/mirrors/pub/debian/cdimage/archive/"
 mkdir -p $dest
-
 src="rsync://cdimage.debian.org/cdimage/archive/"
 rsync \
     --verbose \
@@ -91,6 +90,53 @@ rsync \
     --include="SHA256SUMS.sign" \
     --include="SHA512SUMS" \
     --include="SHA512SUMS.sign" \
+    --include="*/" \
+    --exclude="*" \
+    --prune-empty-dirs \
+    $src \
+    $dest
+
+
+dest="/volume1/mirrors/pub/debian/cdimage/release/"
+mkdir -p $dest
+src="rsync://cdimage.debian.org/cdimage/release/"
+rsync \
+    --verbose \
+    --archive \
+    --update \
+    --compress \
+    --hard-links \
+    --bwlimit=20m \
+    --delete \
+    --delete-after \
+    --delay-updates \
+    --timeout=600 \
+    --recursive \
+    --exclude="*-live" \
+    --exclude="HEADER.html" \
+    --exclude="current*" \
+    --exclude="project" \
+    --exclude="source" \
+    --exclude="arm64" \
+    --exclude="armel" \
+    --exclude="armhf" \
+    --exclude="mips" \
+    --exclude="mips64el" \
+    --exclude="mipsel" \
+    --exclude="multi-arch" \
+    --exclude="powerpc" \
+    --exclude="ppc64el" \
+    --exclude="s390x" \
+    --exclude="source" \
+    --exclude="trace" \
+    --exclude="bt-*" \
+    --include="iso-dvd" \
+    --exclude="iso-*" \
+    --exclude="jigdo-*" \
+    --exclude="list-*" \
+    --exclude="log" \
+    --include="*.iso" \
+    --include="SHA*" \
     --include="*/" \
     --exclude="*" \
     --prune-empty-dirs \
