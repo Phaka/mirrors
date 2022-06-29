@@ -3,11 +3,19 @@
 #!/bin/bash
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 dest="/volume1/mirrors/pub/freebsd/releases/"
-# mkdir -p $dest
+mkdir -p $dest
 
 src="rsync://mirror.liquidtelecom.com/freebsd/releases/"
 rsync \
-    --list-only \
+    --archive \
+    --update \
+    --compress \
+    --hard-links \
+    --bwlimit=20m \
+    --delete \
+    --delete-after \
+    --delay-updates \
+    --timeout=600 \
     --recursive \
     --exclude="README.TXT" \
     --exclude="TIMESTAMP" \
@@ -23,13 +31,11 @@ rsync \
     --exclude="*-disc1.iso" \
     --include="*.iso" \
     --include="CHECKSUM*" \
-    --include="SHA256SUMS" \
-    --include="SHA256SUMS.sign" \
-    --include="SHA512SUMS" \
-    --include="SHA512SUMS.sign" \
+    --include="SHA*" \
     --include="*/" \
     --exclude="*" \
     --prune-empty-dirs \
-    $src
+    $src \
+    $dest
 
 
