@@ -7,7 +7,7 @@ mkdir -p $dest
 
 src="rsync://mirror.liquidtelecom.com/freebsd/releases/"
 rsync \
-    --verbose \
+    -vv \
     --archive \
     --update \
     --compress \

@@ -4,7 +4,7 @@ src="rsync://mirror.leaseweb.com/opensuse/tumbleweed/"
 dest="/volume1/mirrors/pub/opensuse/tumbleweed/"
 mkdir -p $dest
 rsync \
-    --verbose \
+    -vv \
     --archive \
     --update \
     --compress \
@@ -46,7 +46,7 @@ src="rsync://mirror.leaseweb.com/opensuse/distribution/leap/"
 dest="/volume1/mirrors/pub/opensuse/distribution/leap/"
 mkdir -p $dest
 rsync \
-    --verbose \
+    -vv \
     --archive \
     --update \
     --compress \

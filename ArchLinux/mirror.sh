@@ -4,7 +4,7 @@ src="rsync://mirror.leaseweb.com/archlinux/"
 dest="/volume1/mirrors/pub/archlinux/"
 
 rsync \
-    --verbose \
+    -vv \
     --archive \
     --update \
     --compress \

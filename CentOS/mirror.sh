@@ -6,7 +6,7 @@ mkdir -p $dest
 
 src="rsync://mirror.liquidtelecom.com/centos-altarch/"
 rsync \
-    --verbose \
+    -vv \
     --archive \
     --update \
     --compress \
@@ -37,7 +37,7 @@ dest="/volume1/mirrors/pub/centos/"
 mkdir -p $dest
 src="rsync://mirror.liquidtelecom.com/centos/"
 rsync \
-    --verbose \
+    -vv \
     --archive \
     --update \
     --compress \

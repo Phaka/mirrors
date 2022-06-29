@@ -4,7 +4,7 @@ src="rsync://mirror.leaseweb.com/openbsd/"
 dest="/volume1/mirrors/pub/openbsd/"
 
 rsync \
-    --verbose \
+    -vv \
     --archive \
     --update \
     --compress \

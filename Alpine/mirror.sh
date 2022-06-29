@@ -4,7 +4,7 @@ src="rsync://rsync.alpinelinux.org/alpine/"
 dest="/volume1/mirrors/pub/alpine/"
 mkdir -p $dest
 rsync \
-    --verbose \
+    -vv \
     --archive \
     --update \
     --compress \

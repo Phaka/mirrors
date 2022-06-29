@@ -5,7 +5,7 @@ dest="/volume1/mirrors/pub/gentoo/releases/"
 mkdir -p $dest
 
 rsync \
-    --verbose \
+    -vv \
     --archive \
     --update \
     --compress \

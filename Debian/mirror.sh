@@ -4,7 +4,7 @@ dest="/volume1/mirrors/pub/debian/cdimage/archive/"
 mkdir -p $dest
 src="rsync://cdimage.debian.org/cdimage/archive/"
 rsync \
-    --verbose \
+    -vv \
     --archive \
     --update \
     --compress \
@@ -100,7 +100,7 @@ dest="/volume1/mirrors/pub/debian/cdimage/release/"
 mkdir -p $dest
 src="rsync://cdimage.debian.org/cdimage/release/"
 rsync \
-    --verbose \
+    -vv \
     --archive \
     --update \
     --compress \
