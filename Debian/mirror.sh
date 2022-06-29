@@ -5,6 +5,7 @@ mkdir -p $dest
 
 src="rsync://cdimage.debian.org/cdimage/archive/"
 rsync \
+    --verbose \
     --archive \
     --update \
     --compress \

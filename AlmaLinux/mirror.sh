@@ -6,6 +6,7 @@ dest="/volume1/mirrors/pub/almalinux/"
 mkdir -p $dest
 
 rsync \
+    --verbose \
     --archive \
     --update \
     --compress \
