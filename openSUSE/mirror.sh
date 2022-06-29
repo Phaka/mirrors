@@ -15,6 +15,7 @@ rsync \
     --timeout=600 \
     --recursive \
     --cvs-exclude \
+    --safe-links \
     --exclude="repo" \
     --exclude="appliances" \
     --exclude="iso-devel" \
@@ -57,7 +58,6 @@ rsync \
     --timeout=600 \
     --recursive \
     --cvs-exclude \
-    --safe-links \
     --exclude="repo" \
     --exclude="appliances" \
     --exclude="iso-devel" \
@@ -74,6 +74,9 @@ rsync \
     --exclude="*KDE*" \
     --exclude="*Rescue*" \
     --exclude="*XFCE*" \
+    --exclude="*Current.iso" \
+    --exclude="*Current.iso.sha256" \
+    --exclude="*Current.iso.sha256.asc" \
     --include="*/" \
     --include="*.iso" \
     --include="*.iso.sha256" \
