@@ -15,6 +15,7 @@ rsync \
     --timeout=600 \
     --recursive \
     --cvs-exclude \
+    --safe-links \
     --exclude=".pool" \
     --include="*/" \
     --include="*.iso" \
