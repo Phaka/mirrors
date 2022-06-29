@@ -6,7 +6,15 @@ dest="/volume1/mirrors/pub/centos/"
 
 src="rsync://mirror.liquidtelecom.com/centos-altarch/"
 rsync \
-    --list-only \
+    --archive \
+    --update \
+    --compress \
+    --hard-links \
+    --bwlimit=20m \
+    --delete \
+    --delete-after \
+    --delay-updates \
+    --timeout=600 \
     --recursive \
     --exclude="power9" \
     --exclude="aarch64" \
@@ -22,11 +30,20 @@ rsync \
     --include="*dvd1.iso" \
     --exclude="*" \
     --prune-empty-dirs \
-    $src 
+    $src \
+    $dest
 
 src="rsync://mirror.liquidtelecom.com/centos/"
 rsync \
-    --list-only \
+    --archive \
+    --update \
+    --compress \
+    --hard-links \
+    --bwlimit=20m \
+    --delete \
+    --delete-after \
+    --delay-updates \
+    --timeout=600 \
     --recursive \
     --exclude="power9" \
     --exclude="aarch64" \
@@ -43,7 +60,8 @@ rsync \
     --include="*dvd1.iso" \
     --exclude="*" \
     --prune-empty-dirs \
-    $src 
+    $src \
+    $dest
 
 # rsync \
 #     --archive \
