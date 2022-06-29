@@ -27,7 +27,6 @@ rsync \
     --exclude="*aarch64*" \
     --exclude="*ppc64le*" \
     --exclude="*s390x*" \
-    --exclude="*Snapshot*" \
     --exclude="*GNOME*" \
     --exclude="*KDE*" \
     --exclude="*Rescue*" \
