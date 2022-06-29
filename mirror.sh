@@ -1,0 +1,12 @@
+#!/bin/sh
+./AlmaLinux/mirror.sh
+./Alpine/mirror.sh
+./ArchLinux/mirror.sh
+./CentOS/mirror.sh
+./Debian/mirror.sh
+#./Fedora/mirror.sh
+./FreeBSD/mirror.sh
+./Gentoo/mirror.sh
+./OpenBSD/mirror.sh
+./OpenSUSE/mirror.sh
+./Ubuntu/mirror.sh
