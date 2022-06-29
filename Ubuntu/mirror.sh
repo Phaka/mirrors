@@ -16,7 +16,6 @@ rsync \
     --recursive \
     --cvs-exclude \
     --safe-links \
-    --exclude=".pool" \
     --include="*/" \
     --include="*.iso" \
     --include="SHA*" \
