@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-dest="/volume1/mirrors/pub/centos/"
+dest="/volume1/mirrors/pub/centos-altarch/"
 mkdir -p $dest
 
 src="rsync://mirror.liquidtelecom.com/centos-altarch/"
@@ -33,6 +33,8 @@ rsync \
     $src \
     $dest
 
+dest="/volume1/mirrors/pub/centos/"
+mkdir -p $dest
 src="rsync://mirror.liquidtelecom.com/centos/"
 rsync \
     --archive \
