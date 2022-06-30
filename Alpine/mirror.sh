@@ -20,16 +20,10 @@ rsync \
     --fuzzy \
     --exclude="community" \
     --exclude="main" \
-    --exclude="*_rc*" \
-    --exclude="*-xen-*" \
-    --exclude="*netboot*" \
-    --exclude="*minirootfs*" \
-    --exclude="*vanilla*" \
-    --exclude="*-standard-*" \
     --exclude="/MIRRORS.txt" \
     --exclude="/last-updated" \
     --exclude="/latest-stable" \
-    --exclude="edge" \
+    --exclude="/edge" \
     --exclude="/v3.0" \
     --exclude="/v3.1" \
     --exclude="/v3.10" \
@@ -53,3 +47,10 @@ rsync \
     $src \
     $dest
     
+
+# --exclude="*_rc*" \
+# --exclude="*-xen-*" \
+# --exclude="*netboot*" \
+# --exclude="*minirootfs*" \
+# --exclude="*vanilla*" \
+# --exclude="*-standard-*" \
