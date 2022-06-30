@@ -5,7 +5,7 @@ mkdir -p $dest
 
 src="rsync://mirror.liquidtelecom.com/freebsd/releases/"
 rsync \
-    -vv \
+    -v \
     --archive \
     --update \
     --compress \
@@ -38,7 +38,7 @@ dest="/volume1/mirrors/pub/freebsd/FreeBSD-Archive/old-releases/"
 mkdir -p $dest
 src="rsync://ftp-archive.freebsd.org/FreeBSD-Archive/old-releases/"
 rsync \
-    -vv \
+    -v \
     --archive \
     --update \
     --compress \
