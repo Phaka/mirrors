@@ -19,8 +19,12 @@ rsync \
     --safe-links --copy-links --hard-links \
     --fuzzy \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
-    --exclude-from="$SCRIPT_DIR/exclude.txt" \
-    --include-from="$SCRIPT_DIR/include.txt" \
+    --include="*/" \
+    --include="*.iso" \
+    --include="*.iso.sha256" \
+    --include="*.iso.asc" \
+    --include="*.iso.sha512" \
+    --exclude="*" \
     --cvs-exclude \
     $src \
     $dest
