@@ -5,7 +5,7 @@ src="rsync://rsync.alpinelinux.org/alpine/"
 dest="/volume1/mirrors/pub/alpine/"
 mkdir -p $dest
 rsync \
-    -v \
+    --verbose \
     --archive \
     --update \
     --compress \
@@ -14,8 +14,8 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
-    --recursive \
-    --safe-links \
+    --no-motd \
+    --safe-links --copy-links --hard-links \
     --fuzzy \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --exclude-from="$SCRIPT_DIR/exclude.txt" \

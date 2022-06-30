@@ -6,7 +6,7 @@ dest="/volume1/mirrors/pub/almalinux/"
 mkdir -p $dest
 
 rsync \
-    -v \
+    --verbose \
     --archive \
     --update \
     --compress \
@@ -16,8 +16,8 @@ rsync \
     --delay-updates \
     --timeout=600 \
     --cvs-exclude \
-    --recursive \
-    --safe-links \
+    --no-motd \
+    --safe-links --copy-links --hard-links \
     --prune-empty-dirs \
     --fuzzy \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \

@@ -6,7 +6,7 @@ mkdir -p $dest
 
 src="rsync://mirror.liquidtelecom.com/freebsd/releases/"
 rsync \
-    -v \
+    --verbose \
     --archive \
     --update \
     --compress \
@@ -15,8 +15,8 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
-    --recursive \
-    --safe-links \
+    --no-motd \
+    --safe-links --copy-links --hard-links \
     --fuzzy \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --exclude="README.TXT" \
@@ -39,7 +39,7 @@ dest="/volume1/mirrors/pub/freebsd/FreeBSD-Archive/old-releases/"
 mkdir -p $dest
 src="rsync://ftp-archive.freebsd.org/FreeBSD-Archive/old-releases/"
 rsync \
-    -v \
+    --verbose \
     --archive \
     --update \
     --compress \
@@ -48,8 +48,8 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
-    --recursive \
-    --safe-links \
+    --no-motd \
+    --safe-links --copy-links --hard-links \
     --fuzzy \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --exclude="*BETA*" \

@@ -5,7 +5,7 @@ src="rsync://mirror.leaseweb.com/opensuse/tumbleweed/"
 dest="/volume1/mirrors/pub/opensuse/tumbleweed/"
 mkdir -p $dest
 rsync \
-    -v \
+    --verbose \
     --archive \
     --update \
     --compress \
@@ -14,9 +14,9 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
-    --recursive \
+    --no-motd \
     --cvs-exclude \
-    --safe-links \
+    --safe-links --copy-links --hard-links \
     --fuzzy \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --exclude="repo" \
@@ -49,7 +49,7 @@ src="rsync://mirror.leaseweb.com/opensuse/distribution/leap/"
 dest="/volume1/mirrors/pub/opensuse/distribution/leap/"
 mkdir -p $dest
 rsync \
-    -v \
+    --verbose \
     --archive \
     --update \
     --compress \
@@ -58,7 +58,7 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
-    --recursive \
+    --no-motd \
     --cvs-exclude \
     --exclude="repo" \
     --exclude="appliances" \

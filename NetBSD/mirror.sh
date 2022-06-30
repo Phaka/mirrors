@@ -9,7 +9,7 @@ mkdir -p $dest
 RSYNC_LINKS_ARGS="--safe-links --copy-links --hard-links"
 
 rsync \
-    -v \
+    --verbose \
     --archive \
     --update \
     --compress \
@@ -18,7 +18,7 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
-    --recursive \
+    --no-motd \
     --cvs-exclude \
     --human-readable \
     $RSYNC_LINKS_ARGS \

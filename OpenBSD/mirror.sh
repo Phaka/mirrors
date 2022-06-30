@@ -6,7 +6,7 @@ src="rsync://mirror.leaseweb.com/openbsd/"
 dest="/volume1/mirrors/pub/openbsd/"
 
 rsync \
-    -v \
+    --verbose \
     --archive \
     --update \
     --compress \
@@ -15,9 +15,9 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
-    --recursive \
+    --no-motd \
     --cvs-exclude \
-    --safe-links \
+    --safe-links --copy-links --hard-links \
     --fuzzy \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --exclude="ftplist" \

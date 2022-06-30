@@ -5,7 +5,7 @@ src="rsync://mirror.leaseweb.com/archlinux/"
 dest="/volume1/mirrors/pub/archlinux/"
 
 rsync \
-    -v \
+    --verbose \
     --archive \
     --update \
     --compress \
@@ -14,8 +14,8 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
-    --recursive \
-    --safe-links \
+    --no-motd \
+    --safe-links --copy-links --hard-links \
     --fuzzy \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --include="*/" \

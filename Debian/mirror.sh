@@ -5,7 +5,7 @@ dest="/volume1/mirrors/pub/debian/cdimage/archive/"
 mkdir -p $dest
 src="rsync://cdimage.debian.org/cdimage/archive/"
 rsync \
-    -v \
+    --verbose \
     --archive \
     --update \
     --compress \
@@ -14,7 +14,7 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
-    --recursive \
+    --no-motd \
     --fuzzy \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --exclude="*-live" \
@@ -94,7 +94,7 @@ dest="/volume1/mirrors/pub/debian/cdimage/release/"
 mkdir -p $dest
 src="rsync://cdimage.debian.org/cdimage/release/"
 rsync \
-    -v \
+    --verbose \
     --archive \
     --update \
     --compress \
@@ -103,8 +103,8 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
-    --recursive \
-    --safe-links \
+    --no-motd \
+    --safe-links --copy-links --hard-links \
     --exclude="*-live" \
     --exclude="HEADER.html" \
     --exclude="current*" \

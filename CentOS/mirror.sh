@@ -6,7 +6,7 @@ mkdir -p $dest
 
 src="rsync://mirror.liquidtelecom.com/centos-altarch/"
 rsync \
-    -v \
+    --verbose \
     --archive \
     --update \
     --compress \
@@ -15,8 +15,8 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
-    --recursive \
-    --safe-links \
+    --no-motd \
+    --safe-links --copy-links --hard-links \
     --fuzzy \   
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --exclude="8*" \
@@ -35,7 +35,7 @@ dest="/volume1/mirrors/pub/centos/"
 mkdir -p $dest
 src="rsync://mirror.liquidtelecom.com/centos/"
 rsync \
-    -v \
+    --verbose \
     --archive \
     --update \
     --compress \
@@ -44,7 +44,7 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
-    --recursive \
+    --no-motd \
     --exclude="power9" \
     --exclude="aarch64" \
     --exclude="ppc64" \
