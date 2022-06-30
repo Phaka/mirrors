@@ -39,7 +39,6 @@ mkdir -p $dest
 src="rsync://ftp-archive.freebsd.org/FreeBSD-Archive/old-releases/"
 rsync \
     -vv \
-    --list-only \
     --archive \
     --update \
     --compress \
