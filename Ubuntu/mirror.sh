@@ -5,7 +5,6 @@ src="rsync://mirror.leaseweb.com/ubuntu-releases/"
 dest="/volume1/mirrors/pub/ubuntu-releases/"
 
 rsync \
-    --dry-run \
     --verbose \
     --archive \
     --update \

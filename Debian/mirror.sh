@@ -94,6 +94,7 @@ dest="/volume1/mirrors/pub/debian/cdimage/release/"
 mkdir -p $dest
 src="rsync://cdimage.debian.org/cdimage/release/"
 rsync \
+    --dry-run \
     --verbose \
     --archive \
     --update \

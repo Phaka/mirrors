@@ -6,6 +6,7 @@ src="rsync://mirror.leaseweb.com/openbsd/"
 dest="/volume1/mirrors/pub/openbsd/"
 
 rsync \
+    --dry-run \
     --verbose \
     --archive \
     --update \

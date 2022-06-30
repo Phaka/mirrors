@@ -6,6 +6,7 @@ mkdir -p $dest
 
 src="rsync://mirror.liquidtelecom.com/centos-altarch/"
 rsync \
+    --dry-run \
     --verbose \
     --archive \
     --update \

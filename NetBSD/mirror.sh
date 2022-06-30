@@ -9,6 +9,7 @@ mkdir -p $dest
 RSYNC_LINKS_ARGS="--safe-links --copy-links --hard-links"
 
 rsync \
+    --dry-run \
     --verbose \
     --archive \
     --update \

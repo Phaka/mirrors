@@ -5,6 +5,7 @@ src="rsync://mirror.leaseweb.com/opensuse/tumbleweed/"
 dest="/volume1/mirrors/pub/opensuse/tumbleweed/"
 mkdir -p $dest
 rsync \
+    --dry-run \
     --verbose \
     --archive \
     --update \
