@@ -24,6 +24,7 @@ rsync \
     --exclude="*-xen-*" \
     --exclude="*netboot*" \
     --exclude="*minirootfs*" \
+    --exclude="*vanilla*" \
     --exclude="*-standard-*" \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --include="*/" \
