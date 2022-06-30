@@ -29,8 +29,8 @@ rsync \
     --exclude="/torrent" \
     --exclude="/misc" \
     --include="*/" \
-    --include="NetBSD-9.2-amd64.iso" \
-    --include="NetBSD-9.2-i386.iso" \
+    --include="*-amd64.iso" \
+    --include="*-i386.iso" \
     --include="SHA512" \
     --exclude="*" \
     --prune-empty-dirs \
