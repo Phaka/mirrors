@@ -16,7 +16,7 @@ rsync \
     --timeout=600 \
     --no-motd \
     --cvs-exclude \
-    --safe-links --copy-links --hard-links \
+    --safe-links --copy-links \
     --fuzzy \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --include="*/" \
