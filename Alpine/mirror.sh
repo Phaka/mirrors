@@ -18,6 +18,13 @@ rsync \
     --no-motd \
     --safe-links --copy-links --hard-links \
     --fuzzy \
+    --exclude="community" \
+    --exclude="main" \
+    --exclude="*_rc*" \
+    --exclude="*-xen-*" \
+    --exclude="*netboot*" \
+    --exclude="*minirootfs*" \
+    --exclude="*-standard-*" \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --include="*/" \
     --include="*.iso" \
