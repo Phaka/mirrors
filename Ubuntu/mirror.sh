@@ -19,6 +19,7 @@ rsync \
     --cvs-exclude \
     --safe-links --copy-links \
     --fuzzy \
+    --exclude="/releases" \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --include="*/" \
     --include="*.iso" \
