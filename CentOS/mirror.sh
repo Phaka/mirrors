@@ -1,13 +1,15 @@
 #!/bin/bash
 set -euxo pipefail
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-dest="/volume1/mirrors/pub/centos-altarch/"
-mkdir -p $dest
+echo "--- "
+echo "--- CentOS Alt"
+echo "--- "
 
+dest="/volume1/mirrors/pub/centos-altarch/"
 src="rsync://mirror.liquidtelecom.com/centos-altarch/"
 rsync \
-    --dry-run \
     --verbose \
+    --human-readable \
     --archive \
     --update \
     --compress \
@@ -16,27 +18,32 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
+    --cvs-exclude \
     --no-motd \
     --safe-links --copy-links --hard-links \
-    --fuzzy \   
+    --fuzzy \
+    --exclude="*-Minimal-*" \
+    --exclude="*-NetInstall-*" \
+    --exclude="boot.iso" \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
-    --exclude="8*" \
     --include="*/" \
+    --include="*.iso" \
     --include="sha256sum.txt" \
     --include="sha256sum.txt.asc" \
-    --exclude="*latest-dvd1.iso" \
-    --include="*Everything*.iso" \
-    --include="*dvd1.iso" \
     --exclude="*" \
     --prune-empty-dirs \
     $src \
     $dest
 
+echo "--- "
+echo "--- CentOS"
+echo "--- "
+
 dest="/volume1/mirrors/pub/centos/"
-mkdir -p $dest
 src="rsync://mirror.liquidtelecom.com/centos/"
 rsync \
     --verbose \
+    --human-readable \
     --archive \
     --update \
     --compress \
@@ -45,20 +52,22 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
+    --cvs-exclude \
     --no-motd \
-    --exclude="power9" \
-    --exclude="aarch64" \
-    --exclude="ppc64" \
-    --exclude="ppc64le" \
-    --exclude="armhfp" \
+    --safe-links --copy-links --hard-links \
+    --fuzzy \
+    --exclude="*-Minimal-*" \
+    --exclude="*-NetInstall-*" \
+    --exclude="boot.iso" \
+    --exclude="*boot.iso" \
+    --exclude="BaseOS/" \
+    --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --include="*/" \
     --include="sha256sum.txt" \
     --include="sha256sum.txt.asc" \
     --include="CHECKSUM" \
     --include="CHECKSUM.asc" \
-    --exclude="*latest-dvd1.iso" \
-    --include="*Everything*.iso" \
-    --include="*dvd1.iso" \
+    --include="*.iso" \
     --exclude="*" \
     --prune-empty-dirs \
     $src \
