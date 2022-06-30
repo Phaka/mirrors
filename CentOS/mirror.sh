@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -euxo pipefail
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 dest="/volume1/mirrors/pub/centos-altarch/"
 mkdir -p $dest

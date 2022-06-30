@@ -64,6 +64,7 @@ octeon
 ofppc
 packages
 packages-stable
+pc98
 pmax
 power9
 powerpc

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euxo pipefail
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 src="rsync://mirror.planetunix.net/NetBSD/"
