@@ -2,7 +2,7 @@
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 src="rsync://mirror.planetunix.net/NetBSD/"
-dest="/volume1/mirrors/pub/netbsd/iso/"
+dest="/volume1/mirrors/pub/netbsd/"
 mkdir -p $dest
 
 RSYNC_LINKS_ARGS="--safe-links --copy-links --hard-links"
