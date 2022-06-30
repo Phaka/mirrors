@@ -6,18 +6,15 @@ src="rsync://mirror.leaseweb.com/openbsd/"
 dest="/volume1/mirrors/pub/openbsd/"
 
 rsync \
-    --dry-run \
     --verbose \
+    --human-readable \
     --archive \
     --update \
     --compress \
     --bwlimit=20000 \
-    --delete \
-    --delete-after \
     --delay-updates \
     --timeout=600 \
     --no-motd \
-    --cvs-exclude \
     --safe-links --copy-links --hard-links \
     --fuzzy \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
@@ -39,7 +36,6 @@ rsync \
     --exclude="README" \
     --exclude="/SHA256" \
     --exclude="/SHA256.sig" \
-    --exclude="openbsd-71-base.pub" \
     --exclude="ports.tar.gz" \
     --exclude="root.mail" \
     --exclude="src.tar.gz" \
@@ -55,8 +51,3 @@ rsync \
     --prune-empty-dirs \
     $src \
     $dest
-
-
-
-
-
