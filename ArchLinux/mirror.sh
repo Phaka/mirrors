@@ -7,6 +7,7 @@ dest="/volume1/mirrors/pub/archlinux/"
 rsync \
     --dry-run \
     --verbose \
+    --human-readable \
     --archive \
     --update \
     --compress \
@@ -15,6 +16,7 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
+    --cvs-exclude \
     --no-motd \
     --safe-links --copy-links --hard-links \
     --fuzzy \
