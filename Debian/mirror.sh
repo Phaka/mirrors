@@ -8,12 +8,14 @@ rsync \
     --archive \
     --update \
     --compress \
-    --bwlimit=20m \
+    --bwlimit=20000 \
     --delete \
     --delete-after \
     --delay-updates \
     --timeout=600 \
     --recursive \
+    --fuzzy \
+    --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --exclude="*-live" \
     --exclude="HEADER.html" \
     --exclude="3.*" \
@@ -66,16 +68,7 @@ rsync \
     --exclude="project" \
     --exclude="stretch*" \
     --exclude="source" \
-    --exclude="arm64" \
-    --exclude="armel" \
-    --exclude="armhf" \
-    --exclude="mips" \
-    --exclude="mips64el" \
-    --exclude="mipsel" \
     --exclude="multi-arch" \
-    --exclude="powerpc" \
-    --exclude="ppc64el" \
-    --exclude="s390x" \
     --exclude="source" \
     --exclude="trace" \
     --exclude="bt-*" \
@@ -104,7 +97,7 @@ rsync \
     --archive \
     --update \
     --compress \
-    --bwlimit=20m \
+    --bwlimit=20000 \
     --delete \
     --delete-after \
     --delay-updates \

@@ -1,5 +1,5 @@
 #!/bin/sh
-
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 src="rsync://mirror.leaseweb.com/gentoo/releases/"
 dest="/volume1/mirrors/pub/gentoo/releases/"
 mkdir -p $dest
@@ -9,12 +9,14 @@ rsync \
     --archive \
     --update \
     --compress \
-    --bwlimit=20m \
+    --bwlimit=20000 \
     --delete \
     --delete-after \
     --delay-updates \
     --timeout=600 \
     --safe-links \
+    --fuzzy \
+    --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --include="20220626*" \
     --include="20220627*" \
     --exclude="202206*" \
@@ -25,16 +27,6 @@ rsync \
     --exclude=".test" \
     --exclude="admincd*" \
     --exclude="livegui*" \
-    --exclude="alpha" \
-    --exclude="arm" \
-    --exclude="arm64" \
-    --exclude="hppa" \
-    --exclude="ia64" \
-    --exclude="m68k" \
-    --exclude="mips" \
-    --exclude="ppc" \
-    --exclude="riscv" \
-    --exclude="s390" \
     --exclude="sh" \
     --exclude="sparc" \
     --include="*/" \

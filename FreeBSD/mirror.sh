@@ -1,5 +1,3 @@
-#!/bin/sh
-
 #!/bin/bash
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 dest="/volume1/mirrors/pub/freebsd/releases/"
@@ -11,23 +9,20 @@ rsync \
     --archive \
     --update \
     --compress \
-    --bwlimit=20m \
+    --bwlimit=20000 \
     --delete \
     --delete-after \
     --delay-updates \
     --timeout=600 \
     --recursive \
     --safe-links \
+    --fuzzy \
+    --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --exclude="README.TXT" \
     --exclude="TIMESTAMP" \
     --exclude="CI-IMAGES" \
     --exclude="/ISO-IMAGES" \
     --exclude="VM-IMAGES" \
-    --exclude="arm" \
-    --exclude="arm64" \
-    --exclude="powerpc" \
-    --exclude="riscv" \
-    --exclude="sparc64" \
     --exclude="*-bootonly.iso" \
     --exclude="*-disc1.iso" \
     --include="*.iso" \

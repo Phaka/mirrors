@@ -10,18 +10,15 @@ rsync \
     --archive \
     --update \
     --compress \
-    --bwlimit=20m \
+    --bwlimit=20000 \
     --delete \
     --delete-after \
     --delay-updates \
     --timeout=600 \
     --recursive \
     --safe-links \
-    --exclude="power9" \
-    --exclude="aarch64" \
-    --exclude="ppc64" \
-    --exclude="ppc64le" \
-    --exclude="armhfp" \
+    --fuzzy \   
+    --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --exclude="8*" \
     --include="*/" \
     --include="sha256sum.txt" \
@@ -42,7 +39,7 @@ rsync \
     --archive \
     --update \
     --compress \
-    --bwlimit=20m \
+    --bwlimit=20000 \
     --delete \
     --delete-after \
     --delay-updates \

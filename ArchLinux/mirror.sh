@@ -1,5 +1,5 @@
 #!/bin/sh
-
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 src="rsync://mirror.leaseweb.com/archlinux/"
 dest="/volume1/mirrors/pub/archlinux/"
 
@@ -8,13 +8,15 @@ rsync \
     --archive \
     --update \
     --compress \
-    --bwlimit=20m \
+    --bwlimit=20000 \
     --delete \
     --delete-after \
     --delay-updates \
     --timeout=600 \
     --recursive \
     --safe-links \
+    --fuzzy \
+    --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --include="*/" \
     --include="*.iso" \
     --include="*.iso.sig" \

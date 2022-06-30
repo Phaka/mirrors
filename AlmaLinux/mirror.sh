@@ -10,7 +10,7 @@ rsync \
     --archive \
     --update \
     --compress \
-    --bwlimit=20m \
+    --bwlimit=20000 \
     --delete \
     --delete-after \
     --delay-updates \
@@ -19,6 +19,8 @@ rsync \
     --recursive \
     --safe-links \
     --prune-empty-dirs \
+    --fuzzy \
+    --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --exclude-from="$SCRIPT_DIR/exclude.txt" \
     --include-from="$SCRIPT_DIR/include.txt" \
     $src \

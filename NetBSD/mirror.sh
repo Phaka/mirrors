@@ -34,6 +34,6 @@ rsync \
     --include="SHA512" \
     --exclude="*" \
     --prune-empty-dirs \
-    --log-file=netbsd.log \
-    $src 
+    $src \
+    $dest
 
