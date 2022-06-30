@@ -19,7 +19,7 @@ rsync \
     --timeout=600 \
     --cvs-exclude \
     --no-motd \
-    --safe-links --copy-links  \
+    --safe-links --copy-links --hard-links \
     --fuzzy \
     --exclude="live/" \
     --exclude="BaseOS/" \
