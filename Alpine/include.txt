@@ -1,4 +1,0 @@
-*.iso
-*.iso.sha256
-*.iso.asc
-*.iso.sha512
