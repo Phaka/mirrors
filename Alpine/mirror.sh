@@ -5,7 +5,7 @@ src="rsync://rsync.alpinelinux.org/alpine/"
 dest="/volume1/mirrors/pub/alpine/"
 mkdir -p $dest
 rsync \
-    -vv \
+    -v \
     --archive \
     --update \
     --compress \

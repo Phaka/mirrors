@@ -5,7 +5,7 @@ src="rsync://mirror.leaseweb.com/ubuntu-releases/"
 dest="/volume1/mirrors/pub/ubuntu-releases/"
 
 rsync \
-    -vv \
+    -v \
     --archive \
     --update \
     --compress \
