@@ -5,12 +5,9 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 src="rsync://mirror.planetunix.net/NetBSD/"
 dest="/volume1/mirrors/pub/netbsd/"
 mkdir -p $dest
-
-RSYNC_LINKS_ARGS="--safe-links --copy-links --hard-links"
-
 rsync \
-    --dry-run \
     --verbose \
+    --human-readable \
     --archive \
     --update \
     --compress \
@@ -20,9 +17,7 @@ rsync \
     --delay-updates \
     --timeout=600 \
     --no-motd \
-    --cvs-exclude \
-    --human-readable \
-    $RSYNC_LINKS_ARGS \
+    --safe-links --copy-links --hard-links \
     --fuzzy \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
     --exclude="installation" \
