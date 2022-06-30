@@ -8,6 +8,7 @@ mkdir -p $dest
 rsync \
     --dry-run \
     --verbose \
+    --human-readable \
     --archive \
     --update \
     --compress \
@@ -16,6 +17,7 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
+    --no-motd \
     --safe-links --copy-links --hard-links \
     --fuzzy \
     --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
