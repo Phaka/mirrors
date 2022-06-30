@@ -1,11 +1,12 @@
 #!/bin/bash
 set -euxo pipefail
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-dest="/volume1/mirrors/pub/debian/cdimage/archive/"
+dest="/volume1/mirrors/pub/debian/cdimage/"
 mkdir -p $dest
-src="rsync://cdimage.debian.org/cdimage/archive/"
+src="rsync://cdimage.debian.org/cdimage/"
 rsync \
     --verbose \
+    --human-readable \
     --archive \
     --update \
     --compress \
@@ -14,11 +15,41 @@ rsync \
     --delete-after \
     --delay-updates \
     --timeout=600 \
+    --cvs-exclude \
     --no-motd \
+    --safe-links --copy-links --hard-links \
     --fuzzy \
-    --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
-    --exclude="*-live" \
-    --exclude="HEADER.html" \
+    --exclude="/HEADER.html" \
+    --exclude="/openstack" \
+    --exclude="/.bullseye_release" \
+    --exclude="/.buster_release" \
+    --exclude="/.debian-mirror" \
+    --exclude="/.git" \
+    --exclude="/.incoming" \
+    --exclude="/.search-db" \
+    --exclude="/.stretch_release" \
+    --exclude="/.work" \
+    --exclude="/blends-live" \
+    --exclude="/cd-sources" \
+    --exclude="/cloud" \
+    --exclude="/daily-builds" \
+    --exclude="/ports" \
+    --exclude="/snapshot-alternate" \
+    --exclude="/snapshot-amd64" \
+    --exclude="/snapshot" \
+    --exclude="/unofficial" \
+    --exclude="/weekly-builds" \
+    --exclude="older-contrib/" \
+    --exclude="*-live/" \
+    --exclude="*BROKEN_DO_NOT_USE/" \
+    --include="iso-dvd/" \
+    --exclude="bt-*" \
+    --exclude="iso-*" \
+    --exclude="jigdo-*" \
+    --exclude="list-*" \
+    --exclude="log" \
+    --exclude="*_rc*" \
+    --exclude="*_alpha*" \
     --exclude="3.*" \
     --exclude="4.*" \
     --exclude="5.*" \
@@ -62,76 +93,13 @@ rsync \
     --exclude="10.11.*" \
     --exclude="11.0.*" \
     --exclude="11.1.*" \
-    --exclude="bullseye*" \
-    --exclude="buster*" \
-    --exclude="latest*" \
-    --exclude="older*" \
-    --exclude="project" \
-    --exclude="stretch*" \
-    --exclude="source" \
-    --exclude="multi-arch" \
-    --exclude="source" \
-    --exclude="trace" \
-    --exclude="bt-*" \
-    --include="iso-dvd" \
-    --exclude="iso-*" \
-    --exclude="jigdo-*" \
-    --exclude="list-*" \
-    --exclude="log" \
+    --exclude-from="$SCRIPT_DIR/../exclude-arch.txt" \
+    --include="*/" \
     --include="*.iso" \
     --include="SHA256SUMS" \
     --include="SHA256SUMS.sign" \
     --include="SHA512SUMS" \
     --include="SHA512SUMS.sign" \
-    --include="*/" \
-    --exclude="*" \
-    --prune-empty-dirs \
-    $src \
-    $dest
-
-
-dest="/volume1/mirrors/pub/debian/cdimage/release/"
-mkdir -p $dest
-src="rsync://cdimage.debian.org/cdimage/release/"
-rsync \
-    --dry-run \
-    --verbose \
-    --archive \
-    --update \
-    --compress \
-    --bwlimit=20000 \
-    --delete \
-    --delete-after \
-    --delay-updates \
-    --timeout=600 \
-    --no-motd \
-    --safe-links --copy-links --hard-links \
-    --exclude="*-live" \
-    --exclude="HEADER.html" \
-    --exclude="current*" \
-    --exclude="project" \
-    --exclude="source" \
-    --exclude="arm64" \
-    --exclude="armel" \
-    --exclude="armhf" \
-    --exclude="mips" \
-    --exclude="mips64el" \
-    --exclude="mipsel" \
-    --exclude="multi-arch" \
-    --exclude="powerpc" \
-    --exclude="ppc64el" \
-    --exclude="s390x" \
-    --exclude="source" \
-    --exclude="trace" \
-    --exclude="bt-*" \
-    --include="iso-dvd" \
-    --exclude="iso-*" \
-    --exclude="jigdo-*" \
-    --exclude="list-*" \
-    --exclude="log" \
-    --include="*.iso" \
-    --include="SHA*" \
-    --include="*/" \
     --exclude="*" \
     --prune-empty-dirs \
     $src \
