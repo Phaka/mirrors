@@ -7,7 +7,7 @@ find * -prune -type d | while IFS= read -r d; do
     echo "--- $d"
     echo "----------------------------------------------------------------------------"
     pushd "$d" > /dev/null
-    bash $d/mirror.sh
+    ./mirror.sh
     popd > /dev/null
 done
 echo " "
