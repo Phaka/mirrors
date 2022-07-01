@@ -19,6 +19,7 @@ rsync \
     --no-motd \
     --safe-links --copy-links --hard-links \
     --fuzzy \
+    --exclude="/edge" \
     --exclude="/v3.0" \
     --exclude="/v3.1" \
     --exclude="/v3.10" \
