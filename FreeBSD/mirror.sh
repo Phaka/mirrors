@@ -6,6 +6,7 @@ dest="/volume1/mirrors/pub/freebsd/releases/"
 mkdir -p $dest
 src="rsync://ftp-archive.freebsd.org/FreeBSD/releases/"
 rsync \
+    --dry-run \
     --verbose \
     --human-readable \
     --archive \
@@ -37,6 +38,7 @@ dest="/volume1/mirrors/pub/freebsd/old-releases/ISO-IMAGES/"
 mkdir -p $dest
 src="rsync://ftp-archive.freebsd.org/FreeBSD-Archive/old-releases/ISO-IMAGES/"
 rsync \
+    --dry-run \
     --verbose \
     --human-readable \
     --archive \

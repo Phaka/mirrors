@@ -5,6 +5,7 @@ dest="/volume1/mirrors/pub/debian/cdimage/"
 mkdir -p $dest
 src="rsync://cdimage.debian.org/cdimage/"
 rsync \
+    --dry-run \
     --verbose \
     --human-readable \
     --archive \

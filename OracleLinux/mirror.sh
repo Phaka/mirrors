@@ -4,6 +4,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 dest="/volume1/mirrors/pub/oracle/"
 src="rsync://mirrors.kernel.org/mirrors/oracle-linux-isos/"
 rsync \
+    --dry-run \
     --verbose \
     --human-readable \
     --archive \

@@ -42,6 +42,7 @@ echo "--- "
 dest="/volume1/mirrors/pub/centos/"
 src="rsync://mirror.liquidtelecom.com/centos/"
 rsync \
+    --dry-run \
     --verbose \
     --human-readable \
     --archive \

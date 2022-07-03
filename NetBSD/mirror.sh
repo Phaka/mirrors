@@ -6,6 +6,7 @@ src="rsync://mirror.planetunix.net/NetBSD/"
 dest="/volume1/mirrors/pub/netbsd/"
 mkdir -p $dest
 rsync \
+    --dry-run \
     --verbose \
     --human-readable \
     --archive \

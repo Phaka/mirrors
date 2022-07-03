@@ -4,6 +4,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 dest="/volume1/mirrors/pub/rocky/"
 src="rsync://dfw.mirror.rackspace.com/rocky/"
 rsync \
+    --dry-run \
     --verbose \
     --human-readable \
     --archive \

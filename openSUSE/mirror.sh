@@ -4,6 +4,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 src="rsync://mirror.leaseweb.com/opensuse/"
 dest="/volume1/mirrors/pub/opensuse/"
 rsync \
+    --dry-run \
     --verbose \
     --human-readable \
     --archive \

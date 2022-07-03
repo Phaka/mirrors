@@ -5,6 +5,7 @@ src="rsync://mirror.leaseweb.com/archlinux/"
 dest="/volume1/mirrors/pub/archlinux/"
 
 rsync \
+    --dry-run \
     --verbose \
     --human-readable \
     --archive \
