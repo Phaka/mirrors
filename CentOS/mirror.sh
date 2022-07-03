@@ -8,6 +8,7 @@ echo "--- "
 dest="/volume1/mirrors/pub/centos-altarch/"
 src="rsync://mirror.liquidtelecom.com/centos-altarch/"
 rsync \
+    --dry-run \
     --verbose \
     --human-readable \
     --archive \
